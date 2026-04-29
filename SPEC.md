@@ -1,11 +1,5 @@
 # SPEC: openspec-task-explain
 
-> Это спецификация для GigaCode CLI. По этой спецификации должен быть сгенерирован скилл `openspec-task-explain`, дополняющий пайплайн OpenSpec Skills (Сбер, ai-risk-hub-inner-skill-hub).
->
-> Спека написана в формате, максимально близком к тому, что использует команда OpenSpec Skills для своих внутренних скиллов (`openspec-design`, `openspec-implement`, и т.д.) — чтобы результат естественно встраивался в существующую экосистему.
-
----
-
 ## 1. Контекст и место в пайплайне OpenSpec
 
 OpenSpec Skills — это набор скиллов для AI-агента (GigaCode CLI / Qwen Code / Claude Code), реализующих жизненный цикл работы со спецификациями: `teach → new-spec → propose → design → implement → apply-change → archive-change`.
