@@ -38,6 +38,57 @@ openspec-task-explain/
 6. Запущен сгенерированный скилл на `examples/input/`. Результат сравнён с `examples/expected-output/`.
 7. Написан `REVIEW.md`.
 
+## Как воспроизвести
+
+### Шаг 1 — Повторить one-shot генерацию скилла
+
+Удали сгенерированные файлы:
+
+```bash
+rm -rf skills/openspec-task-explain/
+```
+
+Открой проект в GigaCode CLI:
+
+```bash
+gigacode .
+```
+
+Вставь содержимое `PROMPT.md` в чат и отправь. Больше ничего не вводи — никаких уточнений и итераций.
+
+GigaCode должен создать ровно два файла:
+- `skills/openspec-task-explain/SKILL.md`
+- `skills/openspec-task-explain/templates/briefing.md`
+
+### Шаг 2 — Запустить сгенерированный скилл на примере
+
+Установи скилл в GigaCode CLI:
+
+```bash
+gigacode extensions install skills/openspec-task-explain
+```
+
+Введи в чат команду:
+
+```
+выполни скилл openspec-task-explain для задачи 1.1
+```
+
+Когда спросит где искать openspec-артефакты — ответь: `Из examples`
+
+GigaCode создаст briefing и покажет его в чате.
+
+### Шаг 3 — Сравнить результат с эталоном
+
+Сравни полученный briefing с эталонным:
+
+```bash
+diff examples/input/openspec/changes/add-email-validation/briefings/task-1.1.md \
+     examples/expected-output/task-1.1.md
+```
+
+Разбор расхождений — в `REVIEW.md`.
+
 ## Применимость
 
 - В Сбере: устанавливается через `gigacode extensions install` рядом с другими `openspec-*` скиллами.
